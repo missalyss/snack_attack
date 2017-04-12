@@ -1,5 +1,33 @@
 <h3>New Snack</h3>
-<form class="form-group" action="index.html" method="post">
+<form class="form-group" action="http://localhost:3003/snacks/" method="post">
+
   <label for="name">Name of Snack:</label>
-  <input class="form-control" id="name" type="text" name="name" placeholder="Name" value="">
+  <input class="form-control" id="name" type="text" name="name" placeholder="Name" value=""></br>
+
+  <label for="img_url">Image URL:</label>
+  <input class="form-control" id="img_url" type="text" name="img_url" placeholder="Image URL" value=""></br>
+
+  <p><strong>Rating:</strong></p>
+  <label class="form-check-label" for="rating1">
+  <input class="form-check-input" id="rating1" type="radio" name="rating" value="*"> 🥂</label></br>
+
+  <label class="form-check-label" for="rating2">
+  <input class="form-check-input" id="rating2" type="radio" name="rating" value="**"> 🥂 🥂</label></br>
+
+  <label class="form-check-label" for="rating3">
+  <input class="form-check-input" id="rating3" type="radio" name="rating" value="***"> 🥂 🥂 🥂</label></br>
+
+  <label class="form-check-label" for="rating4">
+  <input class="form-check-input" id="rating4" type="radio" name="rating" value="****"> 🥂 🥂 🥂 🥂</label></br>
+
+  <label class="form-check-label" for="rating5">
+  <input class="form-check-input" id="rating5" type="radio" name="rating" value="*****"> 🥂 🥂 🥂 🥂 🥂</label></br>
+
+</br>
+  <label for="review">Review:</label>
+  <!-- <input class="form-control" id="review" type="text" name="review" placeholder="Review" value=""> -->
+  <textarea class="form-control" id="review" name="review" rows="3"></textarea></br>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
