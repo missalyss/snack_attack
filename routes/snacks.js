@@ -13,6 +13,15 @@ router.get('/new', function(req, res, next) {
   res.render('new')
 })
 
+router.get('/:id/delete', function(req, res, next) {
+  var id = req.params.id
+  console.log(id);
+  knex('snacks').where('id', req.params.id).then(function (snack) {
+    console.log(snack);
+    res.render('delete', {snack})
+  })
+})
+
 router.get('/:id', function (req, res, next) {
   var id = req.params.id
   knex('snacks').where({ id }).then(function (oneSnack) {
@@ -27,6 +36,13 @@ router.post('/', function (req, res, next) {
   } = req.body
   console.log(snack);
   knex('snacks').insert(snack).then(function() {
+    res.redirect('/snacks')
+  })
+})
+
+router.delete('/:id', function(req, res, next) {
+  console.log(req.params.id);
+  knex('snacks').del().where('id', req.params.id).then(function() {
     res.redirect('/snacks')
   })
 })
