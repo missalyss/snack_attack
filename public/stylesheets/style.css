@@ -4,5 +4,10 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #065271;
+  font-weight: bold;
+}
+
+img {
+  height: 80px;
 }

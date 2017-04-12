@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
     t.string('rating').defaultTo('***')
     t.text('review')
     t.timestamps(true, true)
-  }
+  })
 };
 
 exports.down = function(knex, Promise) {
