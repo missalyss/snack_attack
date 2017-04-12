@@ -11,8 +11,8 @@
   </tr>
   {{#each allSnacks}}
   <tr>
-    <td><a href="#">{{this.name}}</a></td>
-    <td> <img src="{{this.img_url}}" alt="{{this.name}} Image"></td>
+    <td><a href="./snacks/{{this.id}}">{{this.name}}</a></td>
+    <td> <img class="table-thumb" src="{{this.img_url}}" alt="{{this.name}} Image"></td>
     <td>{{this.rating}}</td>
     <td>{{this.review}}</td>
     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>

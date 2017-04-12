@@ -8,6 +8,10 @@ a {
   font-weight: bold;
 }
 
-img {
+.table-thumb {
   height: 80px;
+}
+
+.one-img {
+  width: 400px;
 }

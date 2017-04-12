@@ -9,4 +9,12 @@ router.get('/', function(req, res, next) {
   })
 })
 
+router.get('/:id', function (req, res, next) {
+  var id = req.params.id
+  knex('snacks').where({ id }).then(function (oneSnack) {
+    console.log(oneSnack);
+    res.render('view-one', {oneSnack})
+  })
+})
+
 module.exports = router

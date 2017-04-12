@@ -1,0 +1,11 @@
+
+{{#each oneSnack}}
+<div class="col-lg-5">
+  <img class="one-img" src="{{this.img_url}}" alt="{{this.name}} image">
+</div>
+<div class="col-lg-7">
+  <h2>{{this.name}}</h2>
+  <h4>{{this.rating}}</h4>
+  <p>{{this.review}}</p>
+</div>
+{{/each}}
