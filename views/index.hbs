@@ -1,2 +1,17 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h3>Let's get some snacks!</h3>
+<table>
+  <tr>
+    <th>Snack</th>
+    <th>Image</th>
+    <th>Rating</th>
+    <th>Review</th>
+  </tr>
+  <tr>
+    {{#each snacks}}
+    <td>{{this.name}}</td>
+    <td>{{this.img_url}}</td>
+    <td>{{this.rating}}</td>
+    <td>{{this.review}}</td>
+    {{/each}}
+  </tr>
+</table>
