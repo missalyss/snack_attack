@@ -13,11 +13,15 @@ router.get('/new', function(req, res, next) {
   res.render('new')
 })
 
+router.get('/:id/edit', function (req, res, next) {
+  knex('snacks').where('id', req.params.id).then(function(thisSnack) {
+    res.render('edit', {thisSnack})
+  })
+})
+
 router.get('/:id/delete', function(req, res, next) {
   var id = req.params.id
-  console.log(id);
   knex('snacks').where('id', req.params.id).then(function (snack) {
-    console.log(snack);
     res.render('delete', {snack})
   })
 })
@@ -25,7 +29,6 @@ router.get('/:id/delete', function(req, res, next) {
 router.get('/:id', function (req, res, next) {
   var id = req.params.id
   knex('snacks').where({ id }).then(function (oneSnack) {
-    console.log(oneSnack);
     res.render('view-one', {oneSnack})
   })
 })
@@ -34,14 +37,30 @@ router.post('/', function (req, res, next) {
   var snack = {
     name, img_url, rating, review
   } = req.body
-  console.log(snack);
-  knex('snacks').insert(snack).then(function() {
+  if (!name) {
+    var error = 'You need a name, yo!'
+    console.log(error);
+    res.render('new', {error})
+  } else if (!img_url) {
+    var defaultImg = "http://clipart-library.com/images/8cxrag66i.jpg"
+  }{
+    knex('snacks').insert(snack).then(function() {
+      res.redirect('/snacks')
+    })
+  }
+})
+
+router.put('/:id', function (req, res, next) {
+  var id = req.params.id
+  var snack = {
+    name, img_url, rating, review
+  } = req.body
+  knex('snacks').where('id', id).update(snack).then(function() {
     res.redirect('/snacks')
   })
 })
 
 router.delete('/:id', function(req, res, next) {
-  console.log(req.params.id);
   knex('snacks').del().where('id', req.params.id).then(function() {
     res.redirect('/snacks')
   })

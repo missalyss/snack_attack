@@ -1,4 +1,9 @@
 <h3>New Snack</h3>
+{{#if error}}
+<div class="alert alert-danger">
+  {{this.error}}
+</div>
+{{/if}}
 <form class="form-group" action="http://localhost:3003/snacks/" method="post">
 
   <label for="name">Name of Snack:</label>
