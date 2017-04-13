@@ -1,7 +1,7 @@
 <h3>Edit Snack</h3>
 
 {{#each thisSnack}}
-<form class="form-group" action="http://localhost:3003/snacks/{{this.id}}?_method=PUT" method="post">
+<form class="form-group" action="/snacks/{{this.id}}?_method=PUT" method="post">
   <label for="name">Name of Snack:</label>
   <input class="form-control" id="name" type="text" name="name" placeholder="Name" value="{{this.name}}"></br>
 
