@@ -38,12 +38,9 @@ router.post('/', function (req, res, next) {
     name, img_url, rating, review
   } = req.body
   if (!name) {
-    var error = 'You need a name, yo!'
-    console.log(error);
+    var error = 'Your snack needs a name, yo!'
     res.render('new', {error})
-  } else if (!img_url) {
-    var defaultImg = "http://clipart-library.com/images/8cxrag66i.jpg"
-  }{
+  } else {
     knex('snacks').insert(snack).then(function() {
       res.redirect('/snacks')
     })
@@ -55,9 +52,14 @@ router.put('/:id', function (req, res, next) {
   var snack = {
     name, img_url, rating, review
   } = req.body
-  knex('snacks').where('id', id).update(snack).then(function() {
-    res.redirect('/snacks')
-  })
+  if (!name) {
+    var error = 'Why would you get rid of the name? Go back and put it back!'
+    res.render('edit', {error})
+  } else {
+    knex('snacks').where('id', id).update(snack).then(function() {
+      res.redirect('/snacks')
+    })
+  }
 })
 
 router.delete('/:id', function(req, res, next) {

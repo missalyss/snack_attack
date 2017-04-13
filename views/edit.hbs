@@ -1,4 +1,5 @@
 <h3>Edit Snack</h3>
+
 {{#each thisSnack}}
 <form class="form-group" action="http://localhost:3003/snacks/{{this.id}}?_method=PUT" method="post">
   <label for="name">Name of Snack:</label>
@@ -8,13 +9,6 @@
   <input class="form-control" id="img_url" type="text" name="img_url" placeholder="Image URL" value="{{this.img_url}}"></br>
 
   <p><strong>Rating:</strong></p>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
-  $(document).ready(function () {
-    $("input[name=rating][value="{{this.rating}}"]").attr("checked")
-    console.log({{this.rating}});
-  })
-</script>
 
   <label class="form-check-label" for="rating1">
   <input class="form-check-input" id="rating1" type="radio" name="rating" value="*"> 🥂</label></br>
@@ -38,3 +32,9 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {{/each}}
+
+{{#if error}}
+<div class="alert alert-danger">
+  {{this.error}}
+</div>
+{{/if}}

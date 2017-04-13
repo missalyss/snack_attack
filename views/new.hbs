@@ -5,13 +5,14 @@
 </div>
 {{/if}}
 <form class="form-group" action="http://localhost:3003/snacks/" method="post">
-
+{{this.string}}
   <label for="name">Name of Snack:</label>
   <input class="form-control" id="name" type="text" name="name" placeholder="Name" value=""></br>
 
   <label for="img_url">Image URL:</label>
-  <input class="form-control" id="img_url" type="text" name="img_url" placeholder="Image URL" value=""></br>
-
+  {{#unless img_url}}
+  <input class="form-control" id="img_url" type="text" name="img_url" placeholder="Image URL" value="http://clipart-library.com/images/8cxrag66i.jpg"></br>
+  {{/unless}}
   <p><strong>Rating:</strong></p>
   <label class="form-check-label" for="rating1">
   <input class="form-check-input" id="rating1" type="radio" name="rating" value="*"> 🥂</label></br>
