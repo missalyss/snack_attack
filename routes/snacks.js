@@ -54,7 +54,7 @@ router.put('/:id', function (req, res, next) {
   } = req.body
   if (!name) {
     var error = 'Why would you get rid of the name? Go back and put it back!'
-    res.render('edit', {error})
+    res.render('edit', {snack, error})
   } else {
     knex('snacks').where('id', id).update(snack).then(function() {
       res.redirect('/snacks')
